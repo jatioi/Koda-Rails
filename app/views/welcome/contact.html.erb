@@ -1,0 +1,35 @@
+
+
+
+
+
+<h1>Contact Us</h1>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class="contact-form">
+  <%= form_with(model: @message, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.email_field :email, required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :message %>
+      <%= form.text_area :message, rows: 4, required: true %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Send Message' %>
+    </div>
+  <% end %>
+  </div>

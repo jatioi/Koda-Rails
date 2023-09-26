@@ -1,16 +1,188 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+   <style>
+       body {
+           margin: 0;
+           padding: 0;
+           background-image: linear-gradient(to bottom right, #ffccff, #99ccff);
+           font-family: Arial, sans-serif;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           animation: backgroundAnimation 10s infinite;
+       }
+
+       h1 {
+           color: #99ccff;
+           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+           animation: floatAnimation 3s ease-in-out infinite;
+       }
+
+       p {
+           font-size: 25px;
+           color: #99ccff;
+           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+
+
+       }
+
+       .about p {
+           background-color: #968ABA;
+           border: 1px solid #968ABA;
+           border-radius: 5px;
+           margin: 0 100px 0 100px;
+           padding: 10px;
+       }
+
+       @keyframes backgroundAnimation {
+           0% {
+               background-position: 0% 50%;
+           }
+           100% {
+               background-position: 100% 50%;
+           }
+       }
+
+       @keyframes floatAnimation {
+           0% {
+               transform: translateY(0);
+           }
+           50% {
+               transform: translateY(-10px);
+           }
+           100% {
+               transform: translateY(0);
+           }
+       }
+
+       .topnav {
+           position: fixed;
+           top: 0;
+           left: 0;
+           right: 0;
+           background-color: #968ABA;
+           text-align: center;
+           padding: 10px 0;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+           overflow: hidden;
+       }
+
+       /* Style the links inside the navigation bar */
+       .topnav a {
+           float: left;
+           color: #6f42c1;
+           text-align: center;
+           padding: 14px 16px;
+           text-decoration: none;
+           font-size: 20px;
+
+       }
+
+       /* Change the color of links on hover */
+       .topnav a:hover {
+           background-color: lightsteelblue;
+           color: darkcyan;
+       }
+
+
+
+
+       .contact-form {
+           max-width: 400px;
+           margin: 0 auto;
+           font-family: monospace;
+
+       }
+
+       .alert-success {
+           background-color: #486F92;
+           color: white;
+           padding: 10px;
+           text-align: center;
+           margin-top: 20px;
+           border-radius: 4px;
+       }
+
+
+
+       .contact-form .field {
+           margin-bottom: 50px;
+
+
+       }
+
+       .contact-form label {
+           display: block;
+           font-weight: bold;
+       }
+
+       .contact-form input[type="text"],
+       .contact-form input[type="email"],
+       .contact-form textarea {
+           width: 100%;
+           padding: 10px;
+           margin-top: 5px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+       }
+
+       .contact-form textarea {
+           resize: vertical;
+       }
+
+       .contact-form .actions {
+           text-align: center;
+           margin-top: 20px;
+       }
+
+       .contact-form input[type="submit"] {
+           background-color: #486F92;
+           color: white;
+           padding: 10px 20px;
+           border: none;
+           border-radius: 4px;
+           cursor: pointer;
+       }
+
+       .contact-form input[type="submit"]:hover {
+           background-color: cornflowerblue;
+           color: #486F92;
+           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+       }
+
+   /*    about*/
+
+
+
+
+
+   </style>
   </head>
+  <title>Your Application Name</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <body>
+  <nav>
+    <ul class="topnav">
+
+      <%= link_to 'home', root_path, class: 'active' %>
+      <%= link_to 'contact', contact_path %>
+      <%= link_to 'about', about_path %>
+
+
+    </ul>
+  </nav>
+
     <%= yield %>
   </body>
 </html>
