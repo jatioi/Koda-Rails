@@ -1,16 +1,19 @@
 <h1>Post List</h1>
+<%= link_to 'add new post', new_post_path%>
 
 <table>
   <thead>
     <td>title</td>
     <td>content</td>
-    <td>action</td>
+    <td>created at</td>
+  <td>updated at</td>
   </thead>
      <% @posts.each do |post| %>
     <tr>
       <td><%= post.title %></td>
       <td><%= post.content %></td>
-      <td></td>
+      <td><%= post.created_at %></td>
+      <td><%= post.updated_at%></td>
     </tr>
   <% end %>
 </table>
