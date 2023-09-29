@@ -1,0 +1,18 @@
+<h3>Feedbacks</h3>
+
+<table>
+  <thead>
+  <tr>
+    <th>title</th>
+    <th>content</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td><%= feedback.title %></td>
+        <td><%= feedback.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

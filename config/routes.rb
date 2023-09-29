@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   get :about, to: 'welcome#about'
   get :contact, to: 'welcome#contact'
   resources :posts
-  get '/feedback', to: 'feedback#new', as: 'new_feedback'
-  post '/feedback', to: 'feedback#create'
+  resources :feedbacks
+  resources :feedbacks, only: [:new, :create]
+
 end
 
 

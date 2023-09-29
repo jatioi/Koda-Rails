@@ -17,10 +17,10 @@
       <li><%=link_to 'Contact', contact_path, class: "nav-link #{'active' if controller_name == 'welcome' && action_name == 'contact' }", 'aria-current': 'page'%></li>
       <li><%=link_to 'About', about_path, class: "nav-link #{'active' if controller_name == 'welcome' && action_name == 'about' }", 'aria-current': 'page'%></li>
       <li><%=link_to 'Post', posts_path, class: "nav-link #{'active' if controller_name == 'posts' && action_name == 'index' }", 'aria-current': 'page'%></li>
-      <li><%=link_to 'Feedbacks', feedback_path, class: "nav-link #{'active' if controller_name == 'feedback' }", 'aria-current': 'page'%></li>
-
     </ul>
   </nav>
+
     <%= yield %>
+
   </body>
 </html>
