@@ -4,10 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-  end
-
-  def new
-    @post = Post.new
 
     if params[:title].present?
       @posts = @posts.where('title LIKE ?', "%#{params[:title]}%")
@@ -18,10 +14,10 @@ class PostsController < ApplicationController
     if @posts.present?
       @posts = @posts.order(created_at: :desc)
     end
-    # def new
-    #   @post = Post.new
-    # end
+  end
 
+  def new
+    @post = Post.new
   end
 
   def create

@@ -8,19 +8,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </head>
-  <title>Your Application Name</title>
+  <title>૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა~ ~ </title>
   <body>
   <nav>
     <ul class="topnav">
       <li><span class="logo-text">૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა</span></li>
       <li><%=link_to 'Home', root_path, class: "nav-link #{'active' if controller_name == 'welcome' && action_name == 'index' }", 'aria-current': 'page'%></li>
-      <li><%=link_to 'Contact', contact_path, class: "nav-link #{'active' if controller_name == 'welcome' && action_name == 'contact' }", 'aria-current': 'page'%></li>
+      <li><%=link_to 'Contact', new_feedback_path, class: "nav-link #{'active' if controller_name == 'welcome' && action_name == 'feedback' }", 'aria-current': 'page'%></li>
       <li><%=link_to 'About', about_path, class: "nav-link #{'active' if controller_name == 'welcome' && action_name == 'about' }", 'aria-current': 'page'%></li>
       <li><%=link_to 'Post', posts_path, class: "nav-link #{'active' if controller_name == 'posts' && action_name == 'index' }", 'aria-current': 'page'%></li>
+
     </ul>
   </nav>
 
+  <div>
     <%= yield %>
+  </div>
 
   </body>
 </html>

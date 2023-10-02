@@ -1,5 +1,5 @@
 class Feedback < ApplicationRecord
-  validates :title, :content, presence:true
+  validates :first_name, :last_name, :country, :message, presence:true
 
   end
 
