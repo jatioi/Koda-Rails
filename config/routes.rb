@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :posts
   resources :feedbacks
   resources :feedbacks, only: [:new, :create]
+  resources :posts do
+    member do
+      post 'publish'
+    end
+  end
 
 
 end

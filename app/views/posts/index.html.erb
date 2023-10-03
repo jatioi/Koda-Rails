@@ -37,7 +37,9 @@
     <td>CONTENT</td>
     <td>CREATED AT</td>
     <td>UPDATED AT</td>
+    <td>PUBLISHED</td>
     <td>ACTIONS</td>
+
   </tr>
   </thead>
   <tbody>
@@ -47,6 +49,8 @@
       <td><%= post.content %></td>
       <td><%= post.created_at %></td>
       <td><%= post.updated_at %></td>
+      <td><%= post.published %></td>
+
       <td>
         <%= link_to 'Show', post_path(post), class: 'btn btn-primary' %>
         <%= link_to 'Edit', edit_post_path(post.id), class: 'btn btn-warning' %>

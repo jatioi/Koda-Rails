@@ -14,6 +14,9 @@ class PostsController < ApplicationController
     if @posts.present?
       @posts = @posts.order(created_at: :desc)
     end
+    if params[:published].present?
+      @posts = @posts.where(published: '1' == params[:published])
+    end
   end
 
   def new
@@ -21,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post].permit(:title, :content))
+    @post = Post.new(post_params)
     if @post.save
       redirect_to posts_path
     else
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-
+    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = 'Post update successfully'
       redirect_to posts_path
@@ -58,6 +61,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :published)
   end
 end

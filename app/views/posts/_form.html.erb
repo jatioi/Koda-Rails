@@ -14,5 +14,10 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <div>
+    <%= form.label :published, 'Published' %>
+    <%= form.check_box :published %>
+  </div>
+
   <%= form.submit %>
 <% end %>
