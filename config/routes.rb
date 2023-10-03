@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :feedbacks
   resources :feedbacks, only: [:new, :create]
 
+
 end
 
 
