@@ -3,20 +3,15 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-   root 'welcome#index'
+  root 'welcome#index'
   get :about, to: 'welcome#about'
   get :contact, to: 'welcome#contact'
-  resources :posts
   resources :feedbacks
-  resources :feedbacks, only: [:new, :create]
   resources :posts do
-    member do
-      post 'publish'
-    end
+    resources :comments, except: :show
   end
 
 
 end
 
 
-#hello, about page, contact page, root, get
