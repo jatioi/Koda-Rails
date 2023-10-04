@@ -25,6 +25,13 @@
       <%= form.label "Message: " %>
       <%= form.text_area :message %>
     </div>
+    <div class="field">
+      <strong>Remark:</strong>
+      <% Feedback.remarks.keys.each do |remark| %>
+        <%= form.radio_button :remark, remark %> <%= remark.humanize %>
+      <% end %>
+    </div>
+
   </div>
   <%= form.submit %>
 <% end %>

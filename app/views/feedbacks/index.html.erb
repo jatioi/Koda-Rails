@@ -10,7 +10,9 @@
       <td>Last Name</td>
       <td>Country</td>
       <td>Message</td>
+      <td >Remark</td>
       <td >Action</td>
+
     </tr>
     </thead>
     <tbody>
@@ -20,6 +22,7 @@
         <td><%= feedback.last_name %></td>
         <td><%= feedback.country %></td>
         <td><%= feedback.message %></td>
+        <td><%= feedback.remark %></td>
         <td>
           <%= link_to 'Show', feedback_path(feedback), class: 'btn btn-primary' %>
           <%= link_to 'Edit', edit_feedback_path(feedback.id), class: 'btn btn-warning' %>
