@@ -1,4 +1,7 @@
 <%= form_with model: post do |form| %>
+  <div>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </div>
   <% if post.errors.any? %>
     <ul>
       <% post.errors.each do |error| %>
