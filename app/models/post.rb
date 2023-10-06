@@ -6,8 +6,9 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :post_category_ships
   has_many :categories, through: :post_category_ships
+  belongs_to :user
 
   def destroy
-    updated(deleted_at: Time.now)
+    update(deleted_at: Time.now)
   end
 end

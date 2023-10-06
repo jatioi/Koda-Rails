@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
+
     if params[:title].present?
       @posts = @posts.where('title LIKE ?', "%#{params[:title]}%")
     end
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
     if params[:published].present?
       @posts = @posts.where(published: '1' == params[:published])
     end
+    @users = User.all
   end
 
   def new
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to posts_path
     else

@@ -18,6 +18,15 @@
       <li><%=link_to 'About', about_path, class: "nav-link #{'active' if controller_name == 'welcome' && action_name == 'about' }", 'aria-current': 'page'%></li>
       <li><%=link_to 'Post', posts_path, class: "nav-link #{'active' if controller_name == 'posts' && action_name == 'index' }", 'aria-current': 'page'%></li>
       <li><%=link_to 'Feedbacks', feedbacks_path, class: "nav-link #{'active' if controller_name == 'feedback' && action_name == 'index' }", 'aria-current': 'page'%></li>
+      <li>
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Sign out', destroy_user_session_path, data: { 'turbo-method': :delete }, class: 'nav-link' %>
+        </li>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+      <% end %>
+      </li>
 
     </ul>
   </nav>

@@ -3,7 +3,7 @@
 
 body {
   margin-top: -200px;
-  padding: 0;
+  padding-top: 200px;
   background-image: linear-gradient(to bottom right, #ffccff, #99ccff);
   font-family: Arial, sans-serif;
   display: flex;
@@ -68,13 +68,13 @@ td {
 
 }
 
+
 .table-container {
-
   height: 800px;
-  width: 1000px;
+  width: 1300px;
   max-width: 100%;
+  margin: auto 0;
   overflow: auto;
-
 }
 
 thead {
