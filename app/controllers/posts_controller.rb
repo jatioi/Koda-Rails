@@ -18,7 +18,8 @@ class PostsController < ApplicationController
     if params[:published].present?
       @posts = @posts.where(published: '1' == params[:published])
     end
-    @users = User.all
+    @posts = Post.includes(:categories, :user).page(params[:page]).per(5)
+
   end
 
   def new

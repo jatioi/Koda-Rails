@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def index
-    @comments = @post.comments.all
+    @comments = @post.comments.all.page(params[:page]).per(5)
   end
   def new
     @comment = @post.comments.build
