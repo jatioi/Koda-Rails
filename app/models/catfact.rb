@@ -1,4 +1,4 @@
 class Catfact < ApplicationRecord
-  validates :catfacts, presence: true
   belongs_to :user
+  validates :fact, presence: true
 end
