@@ -1,37 +1,41 @@
-
 <div class="">
   <h1>Feedbacks</h1>
 
-  <div  class="table-container">
-  <table>
-    <thead>
-    <tr>
-      <td>First Name</td>
-      <td>Last Name</td>
-      <td>Country</td>
-      <td>Message</td>
-      <td >Remark</td>
-      <td >Action</td>
-
-    </tr>
-    </thead>
-    <tbody>
-    <% @feedbacks.each do |feedback| %>
+  <div class="table-container">
+    <table>
+      <thead>
       <tr>
-        <td><%= feedback.first_name %></td>
-        <td><%= feedback.last_name %></td>
-        <td><%= feedback.country %></td>
-        <td><%= feedback.message %></td>
-        <td><%= feedback.remark %></td>
-        <td>
-          <%= link_to 'Show', feedback_path(feedback), class: 'btn btn-primary' %>
-          <%= link_to 'Edit', edit_feedback_path(feedback.id), class: 'btn btn-warning' %>
-          <%= button_to 'Delete', feedback_path(feedback.id), method: :delete, class: 'btn btn-danger' %>
-        </td>
-      </tr>
+        <!--      <td>First Name</td>-->
+        <!--      <td>Last Name</td>-->
+        <td>Country</td>
+        <td>Message</td>
+        <td>Remark</td>
+        <td>NOTES count</td>
+        <td>Action</td>
 
-    <% end %>
-    </tbody>
-  </table>
+      </tr>
+      </thead>
+      <tbody>
+      <% @feedbacks.each do |feedback| %>
+        <tr>
+<!--                  <td><%#= feedback.first_name %></td>-->
+<!--                  <td><%#= feedback.last_name %></td>-->
+          <td><%= feedback.country %></td>
+          <td><%= feedback.message %></td>
+          <td><%= feedback.remark %></td>
+          <td><%= feedback.notes_count %></td>
+          <td>
+            <%= link_to 'Show', feedback_path(feedback), class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_feedback_path(feedback.id), class: 'btn btn-warning' %>
+            <%= button_to 'Delete', feedback_path(feedback.id), method: :delete, class: 'btn btn-danger' %>
+            <%= link_to 'Notes', feedback_notes_path(feedback), class: 'btn btn-primary' %>
+            <%= link_to 'Add Notes', new_feedback_note_path(feedback), class: 'btn btn-primary' %>
+
+          </td>
+        </tr>
+
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
