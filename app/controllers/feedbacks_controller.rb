@@ -23,11 +23,16 @@ class FeedbacksController < ApplicationController
       flash[:alert] = "feedback create failed"
       # Handle validation errors, re-render the form
       render 'news'
+
     end
   end
 
   def show
     @feedback = Feedback.find(params[:id])
+    @feedback.ip_address = retrieve_ip_address
+
+    ip_address = IpService.fetch_ip_address
+
   end
 
   def edit
@@ -59,6 +64,16 @@ class FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit(:first_name, :last_name, :country, :message, :remark)
+  end
+
+  def retrieve_ip_address
+    begin
+      # Fetch the IP address using your IpService or another method
+      IpService.fetch_ip_address
+    rescue RestClient::ExceptionWithResponse => e
+      # Handle RestClient errors here, if needed
+      'Unable to fetch IP address'
+    end
   end
 end
 

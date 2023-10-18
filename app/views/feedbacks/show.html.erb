@@ -8,6 +8,8 @@
   <th>CREATED</th>
   <th>UPDATED</th>
   <th>REMARK</th>
+  <th>IP</th>
+
 
   </thead>
 
@@ -20,6 +22,8 @@
   <td><%= @feedback.created_at.strftime("%m/%d/%Y  %I:%M%p")%></td>
   <td><%= @feedback.updated_at.strftime("%m/%d/%Y  %I:%M%p")%></td>
   <td><%= @feedback.remark%></td>
+  <td> <%= @feedback.ip_address %></td>
+
 
 
 </tr>

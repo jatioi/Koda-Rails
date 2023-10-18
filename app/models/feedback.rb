@@ -4,6 +4,7 @@ class Feedback < ApplicationRecord
 
   has_many :notes
   belongs_to :user
+  after_create :log_ip_address
 
   def destroy
     update(deleted_at: Time.now)
@@ -12,4 +13,13 @@ end
 
 class Feedback < ApplicationRecord
   enum remark: { good: 0, neutral: 1, bad: 2 } # Specify your options and their integer values
+end
+
+
+
+private
+
+def log_ip_address
+  # Log the IP address of the user using the IpService
+  IpService.log_ip_address(self)
 end
