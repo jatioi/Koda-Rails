@@ -1,0 +1,2 @@
+module Api::CatfactsHelper
+end
