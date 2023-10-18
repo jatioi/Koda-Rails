@@ -39,6 +39,8 @@ gem "faker"
 gem "kaminari"
 
 gem "rest-client"
+
+gem "ipify-api"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
