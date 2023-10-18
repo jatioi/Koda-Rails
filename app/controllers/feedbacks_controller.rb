@@ -1,6 +1,7 @@
 class FeedbacksController < ApplicationController
   # Display the feedbacks form (HTML form)
   # app/controllers/feedbacks_controller.rb
+  before_action :authenticate_user!
 
   def index
     @feedbacks = Feedback.all
@@ -11,7 +12,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    # feedback = Feedback.new(params[:post].permit(:title, :content))
+    # feedback = Feedback.news(params[:post].permit(:title, :content))
     @feedback = Feedback.new(feedback_params)
 
     if @feedback.save
@@ -21,7 +22,7 @@ class FeedbacksController < ApplicationController
     else
       flash[:alert] = "feedback create failed"
       # Handle validation errors, re-render the form
-      render 'new'
+      render 'news'
     end
   end
 
