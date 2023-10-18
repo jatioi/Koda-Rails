@@ -14,9 +14,11 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :categories, except: :show
+  resources :catfacts
   namespace :api do
-    resource :catfacts, only: :create
+    resources :news, only: :index
   end
 end
+
 
 
