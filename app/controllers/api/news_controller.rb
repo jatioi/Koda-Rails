@@ -2,7 +2,7 @@ class Api::NewsController < ApplicationController
   def index
     @categories = %w[business entertainment general health science sports technology]
     api_params = {
-      'apiKey': '42a6e108bb4548cc8d3179d86d554a49',
+      'apiKey': '11573f65e4ac461a9ab42136511e1230',
       country: 'ph'
     }
 
