@@ -3,7 +3,7 @@ class Api::CatfactsController < ApplicationController
 
   def index
     @catfacts = Catfact.all
-    if params[:filter].present?
+    if params[:filter]== '1'
       @catfacts = Catfact.where(user: current_user)
     end
     end
