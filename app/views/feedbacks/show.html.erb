@@ -1,14 +1,14 @@
 <h1>Show ID: <%= @feedback.id %></h1>
-
+<h5> <%= @feedback.ip_address %></h5>
+<h3> <%= "#{@feedback&.ip_info['city']}, #{@feedback&.ip_info['region']}"%></h3>
 <table>
   <thead>
-<!--  <th>FIRST NAME</th>-->
+<!--  <th>NAME</th>-->
 <!--  <th>LAST NAME</th>-->
   <th>MESSAGE</th>
   <th>CREATED</th>
   <th>UPDATED</th>
   <th>REMARK</th>
-  <th>IP</th>
 
 
   </thead>
@@ -16,16 +16,16 @@
 
 
 <tr>
-<!--  <td><%#= @feedback.first_name %></td>-->
+<!--  <td><%#= @feedback.full_name %></td>-->
 <!--  <td><%#= @feedback.last_name %></td>-->
   <td><%= @feedback.message %></td>
   <td><%= @feedback.created_at.strftime("%m/%d/%Y  %I:%M%p")%></td>
   <td><%= @feedback.updated_at.strftime("%m/%d/%Y  %I:%M%p")%></td>
   <td><%= @feedback.remark%></td>
-  <td> <%= @feedback.ip_address %></td>
 
 
 
 </tr>
 </table>
+
 <%= link_to 'Edit', edit_feedback_path(@feedback), class: 'btn btn-warning' %>
