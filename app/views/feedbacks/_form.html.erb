@@ -13,13 +13,10 @@
 <div class="container">
   <%= form_with model: @feedback, url: url, method: method, data: { turbo: false } do |form| %>
     <div class="mb-3">
-      <%= form.label :first_name, class: 'form-label' %>
-      <%= form.text_field :first_name, class: 'form-control' %>
+      <%= form.label :full_name, class: 'form-label' %>
+      <%= form.text_field :full_name, class: 'form-control' %>
     </div>
-    <div class="mb-3">
-      <%= form.label :last_name, class: 'form-label' %>
-      <%= form.text_field :last_name, class: 'form-control' %>
-    </div>
+
     <div class="mb-3">
       <%= form.label :message, class: 'form-label' %>
       <%= form.text_area :message, class: 'form-control' %>

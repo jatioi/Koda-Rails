@@ -10,13 +10,10 @@
 <%= form_with model: @feedback, data: { turbo: false } do |form| %>
   <div class="container">
     <div>
-      <%= form.label 'First Name' %>
-      <%= form.text_field :first_name %>
+      <%= form.label 'Full Name' %>
+      <%= form.text_field :full_name %>
     </div>
-    <div>
-      <%= form.label 'Last Name' %>
-      <%= form.text_field :last_name %>
-    </div>
+
     <div class="">
       <%= form.label "Country: " %>
       <%= form.select :country, [:philippines, :US, :japan] %>

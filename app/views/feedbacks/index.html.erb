@@ -5,7 +5,7 @@
     <table>
       <thead>
       <tr>
-        <!--      <td>First Name</td>-->
+        <td>Name</td>
         <!--      <td>Last Name</td>-->
         <td>Country</td>
         <td>Message</td>
@@ -18,7 +18,7 @@
       <tbody>
       <% @feedbacks.each do |feedback| %>
         <tr>
-<!--                  <td><%#= feedback.first_name %></td>-->
+          <td><%= feedback.full_name %></td>
 <!--                  <td><%#= feedback.last_name %></td>-->
           <td><%= feedback.country %></td>
           <td><%= feedback.message %></td>
