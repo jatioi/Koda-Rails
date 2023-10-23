@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     end
     @posts = Post.includes(:categories, :user).page(params[:page]).per(5)
 
+    # render json: @posts, each_serializer: PostSerializer
   end
 
   def new
@@ -66,6 +67,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :address, category_ids: [])
+    params.require(:post).permit(:title, :content, :image, :published, :address, category_ids: [])
   end
 end
