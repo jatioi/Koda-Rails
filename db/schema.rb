@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_082717) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_061507) do
   create_table "address_barangays", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "city_id"
     t.string "code"
@@ -109,6 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_082717) do
     t.datetime "deleted_at"
     t.bigint "user_id"
     t.integer "comments_count"
+    t.string "image"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -122,6 +123,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_082717) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "phone_number"
+    t.integer "genre", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
