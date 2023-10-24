@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     if params[:published].present?
       @posts = @posts.where(published: '1' == params[:published])
     end
-    @posts = Post.includes(:categories, :user).page(params[:page]).per(5)
+    @posts = Post.includes(:categories, :user, :region, :province,).page(params[:page]).per(5)
 
     # render json: @posts, each_serializer: PostSerializer
   end
@@ -67,6 +67,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image, :published, :address, category_ids: [])
+    params.require(:post).permit(:title, :content, :image, :published, :address, :address_region_id, :address_province_id, category_ids: [])
   end
 end
