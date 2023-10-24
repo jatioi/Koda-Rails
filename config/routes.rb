@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
       resources :barangays, only: %i[index show], defaults: { format: :json }
     end
+    resources :random_users, only: :index
   end
 end
 
