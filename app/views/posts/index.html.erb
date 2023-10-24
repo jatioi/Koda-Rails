@@ -35,6 +35,8 @@
     <tr>
       <td>TITLE</td>
       <td>CONTENT</td>
+      <td>IMAGE</td>
+      <td>ADDRESS</td>
       <td>CREATED AT</td>
       <td>UPDATED AT</td>
       <td>CATEGORY</td>
@@ -50,12 +52,17 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
+        <td><%= image_tag post.image.url if post.image.present? %></td>
+        <td><%= "#{post.region&.name} #{post.province&.name} #{post.address}" %></td>
         <td><%= post.created_at %></td>
         <td><%= post.updated_at %></td>
         <td><%= post.categories.pluck(:name).join(',') %></td>
         <td><%= post.comments_count %></td>
         <td><%= post.published %></td>
-        <td><%= post.user.email %></td>
+        <td data-controller="clipboard">
+          <span data-clipboard-target="email"><%= post.user&.email %></span>
+          <button data-action="click->clipboard#copy">copy</button>
+        </td>
 
 
         <td>
